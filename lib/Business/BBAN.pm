@@ -1,6 +1,10 @@
-package Business::BBAN;
+# ABSTRACT: helpers to compute BBAN key and generate an BBAN. 
 
+package Business::BBAN;  
 use Modern::Perl;
+our $VERSION = '0.0'; 
+
+
 
 ##
 # Package helper to compute BBAN key and generate an BBAN from a bank
