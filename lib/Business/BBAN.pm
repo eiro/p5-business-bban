@@ -57,7 +57,13 @@ sub compute_key (_) {
     my $bban = shift.'00';
     my $rest = 0;
     map { $rest = ($rest * 10 + $_ ) % 97 } split //, $bban;
-    97 - $rest;
+    my $key = 97 - $rest;
+    if($key < 10)
+    {
+        $key = '0'.$key;
+    }
+
+    $key;
 }
 
 ##
