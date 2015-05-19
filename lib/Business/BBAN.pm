@@ -1,5 +1,7 @@
-package Business::BBAN;  
-use Modern::Perl;
+package Business::BBAN;
+use strict;
+use warnings;
+use 5.010;
 our $VERSION = '0.0'; 
 # ABSTRACT: helpers to compute BBAN key and generate an BBAN.
 

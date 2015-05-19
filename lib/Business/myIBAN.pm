@@ -1,6 +1,7 @@
 package Business::myIBAN;
-
-use Modern::Perl;
+use strict;
+use warnings;
+use 5.010;
 
 ##
 # Package helper to compute an IBAN key, generate and format an IBAN from a BBAN
