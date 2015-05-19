@@ -3,22 +3,23 @@ use strict;
 use warnings;
 use 5.010;
 
-##
-# Package helper to compute an IBAN key, generate and format an IBAN from a BBAN
-# and the country code.
-#
-# @author Vincent Lucas
-##
+=head1 SYNOPSIS
 
-##
-# Converts alpha characters into digit, following IBAN rules: replaces each
-# alpha character with 2 digits A = 10, B = 11, ..., Z = 35.
-#
-# @param bban A string to convert into the IBAN digit representation.
-#
-# @return A string representation of the Basic Bank Account Number (BBAN), which
-# contains only digits.
-##
+Package helper to compute an IBAN key, generate and format an IBAN from a BBAN
+and the country code.
+
+=head2 to_digit $bban=$_
+
+Converts alpha characters into digit, following IBAN rules: replaces each
+alpha character with 2 digits A = 10, B = 11, ..., Z = 35.
+
+C<$bban> A string to convert into the IBAN digit representation.
+
+returns a string representation of the Basic Bank Account Number (BBAN), which
+contains only digits.
+
+=cut
+
 sub to_digit (_) {
     my $bban = shift;
     $bban = uc $bban;
@@ -28,16 +29,19 @@ sub to_digit (_) {
     $bban;
 } 
 
-##
-# Computes the key corresponding to a given International Bank Account Number
-# (IBAN)
-#
-# @param country_code A string representation of the country code converted into IBAN  digits.
-# @param bban A string representation of the Basic Bank Account Number (BBAN)
-# with its key part and converted into IBAN digits.
-#
-# @return The IBAN key computed.
-##
+=head2 compute_key $country_code, $bban
+
+Computes the key corresponding to a given International Bank Account Number
+(IBAN) when 
+
+    $country_code A string representation of the country code converted into IBAN  digits.
+    $bban A string representation of the Basic Bank Account Number (BBAN)
+        with its key part and converted into IBAN digits. 
+
+returns the IBAN key computed.
+
+=cut
+
 sub compute_key {
     my $country_code = shift;
     my $bban = shift;
@@ -54,20 +58,23 @@ sub compute_key {
     }
 
     $key;
-}
+} 
 
-##
-# Computes and returns the International Bank Account Number (IBAN)
-# corresponding to the given country code and Basic Bank Account Number (BBAN).
-#
-# @param country_code The country code (i.e. "FR" for France, "DE" for Germany,
-# etc.).
-# @param bban Yhe Basic Bank Account Number (BBAN).
-#
-# @return A string representation of the International Bank Account Number
-# (IBAN) with the key part. The returned IBAN can contains alpha and digit
-# characters.
-##
+=head2 get_IBAN $country_code, $bban
+
+Computes and returns the International Bank Account Number (IBAN)
+corresponding to the given country code and Basic Bank Account Number (BBAN).
+where
+
+    $country_code is the country code (i.e. "FR" for France, "DE" for Germany, etc.).
+    $bban is the Basic Bank Account Number (BBAN).
+
+returns a string representation of the International Bank Account Number
+(IBAN) with the key part. The returned IBAN can contains alpha and digit
+characters.
+
+=cut
+
 sub get_IBAN {
     my $country_code = uc shift;
     my $bban = shift;
@@ -80,13 +87,16 @@ sub get_IBAN {
     format_with_spaces($country_code.$iban_key.$bban);
 }
 
-##
-# Formats the IBAN provided and separate each 4 digit with a space.
-#
-# @param iban   The IBAN provided.
-#
-# @return The IBAN separated each 4 digit with a space.
-##
+=head2 format_with_spaces $iban
+
+Formats the IBAN provided and separate each 4 digit with a space.
+
+    $iban an IBAN
+
+returns the IBAN separated each 4 digit with a space.
+
+=cut
+
 sub format_with_spaces {
     my $iban = shift;
     $iban =~ s/ //g;
