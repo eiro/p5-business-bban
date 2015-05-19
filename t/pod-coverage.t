@@ -4,6 +4,11 @@ eval "use Test::Pod::Coverage $min_tpc";
 $@ and plan skip_all =>
     "Test::Pod::Coverage $min_tpc required for testing POD coverage";
 
+map {
+    pod_coverage_ok( $_ => "Documentation covering the module $_")
+} qw(
+    Business::BBAN
+    Business::myIBAN
+);
 
-pod_coverage_ok('Business::BBAN' => "Perlude POD covering");
 done_testing;
