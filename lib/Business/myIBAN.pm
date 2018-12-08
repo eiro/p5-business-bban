@@ -1,9 +1,11 @@
 package Business::myIBAN;
 use strict;
 use warnings;
-use 5.010;
+use 5.014;
 
 =head1 SYNOPSIS
+
+PLEASE ADOPT ME! my maintainer have no interest anymore.
 
 Package helper to compute an IBAN key, generate and format an IBAN from a BBAN
 and the country code.

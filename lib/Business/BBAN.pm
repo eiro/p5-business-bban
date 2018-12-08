@@ -1,11 +1,14 @@
 package Business::BBAN;
 use strict;
 use warnings;
-use 5.010;
-our $VERSION = '0.0'; 
+use 5.014;
+our $VERSION = '0.1';
+
 # ABSTRACT: helpers to compute BBAN key and generate an BBAN.
 
 =head1 NAME
+
+PLEASE ADOPT ME! my maintainer have no interest anymore.
 
 Business::BBAN - helpers to compute BBAN key and generate an BBAN.
 
