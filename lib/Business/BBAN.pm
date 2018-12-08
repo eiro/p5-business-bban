@@ -5,20 +5,9 @@ use 5.010;
 our $VERSION = '0.0'; 
 # ABSTRACT: helpers to compute BBAN key and generate an BBAN.
 
-=head1 AUTHORS
+=head1 NAME
 
-=over 4
-
-=item * 
-
-Vincent Lucas (code and documentation)
-
-=item * 
-
-Marc Chantreux (podification and cpan distrib)
-
-=back
-
+Business::BBAN - helpers to compute BBAN key and generate an BBAN.
 
 =head1 SYNOPSIS
 
@@ -109,5 +98,20 @@ sub get_BBAN {
 
     $bban.$bban_key;
 }
+
+=head1 AUTHORS
+
+=over 4
+
+=item * 
+
+Vincent Lucas (code and documentation)
+
+=item * 
+
+Marc Chantreux (podification and cpan distrib)
+
+=back
+
 
 1;
