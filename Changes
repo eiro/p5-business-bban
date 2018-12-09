@@ -1,0 +1,6 @@
+Revision history
+
+0.1    2018-12-9    Marc Chantreux
+
+    * typo fix by @manwar
+    * remove support for perl < 5.16
